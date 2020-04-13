@@ -6,7 +6,6 @@
         Erro::trataErro($e);
     }
 ?>
-
 <?php require_once 'cabecalho.php' ?>
 <div class="row">
     <div class="col-md-12">
@@ -22,21 +21,21 @@
 
 <div class="row">
     <div class="col-md-12">
-    <?php if (count($lista) > 0): ?>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Categoria</th>
-                <th class="acao">Editar</th>
-                <th class="acao">Excluir</th>
-            </tr>
-            </thead>
-            <tbody>
-                <?php foreach($lista as $linha): ?>
+        <?php if (count($lista) > 0): ?>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Categoria</th>
+                    <th class="acao">Editar</th>
+                    <th class="acao">Excluir</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($lista as $linha): ?>
                     <tr>
                         <td><?php echo $linha['id'] ?></td>
                         <td><?php echo $linha['nome'] ?></td>
@@ -46,9 +45,9 @@
                         <td><a href="/produtos-editar.php?id=<?php echo $linha['id'] ?>" class="btn btn-info">Editar</a></td>
                         <td><a href="/produtos-excluir-post.php?id=<?php echo $linha['id'] ?>" class="btn btn-danger">Excluir</a></td>
                     </tr>
-                <?php endforeach ?>
-            </tbody>
-        </table>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         <?php else: ?>
             <p>Nenhum produto cadastrado</p>
         <?php endif ?>

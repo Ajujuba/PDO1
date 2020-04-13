@@ -1,14 +1,14 @@
 <?php
 
-
 class Categoria
 {
 
     public $id;
     public $nome;
 
-    public function __construct($id = false){
-        if($id){
+    public function __construct($id = false)
+    {
+        if ($id) {
             $this->id = $id;
             $this->carregar();
         }
@@ -16,14 +16,15 @@ class Categoria
 
     public static function listar()
     {
-        $query = "SELECT id, nome FROM categorias";
+        $query = "SELECT id, nome FROM categorias ORDER BY nome";
         $conexao = Conexao::pegarConexao();
-        $resultado = $conexao->query($query);  // método query retorna um objeto (pdo statment) retorna as linhas 
-        $lista = $resultado->fetchAll(); // retorna o array com todas as linhas da consulta
+        $resultado = $conexao->query($query);
+        $lista = $resultado->fetchAll();
         return $lista;
     }
 
-    public function carregar(){
+    public function carregar()
+    {
         $query = "SELECT id, nome FROM categorias WHERE id = :id";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
@@ -31,10 +32,10 @@ class Categoria
         $stmt->execute();
         $linha = $stmt->fetch();
         $this->nome = $linha['nome'];
-        
     }
 
-    public function inserir($nome){
+    public function inserir()
+    {
         $query = "INSERT INTO categorias (nome) VALUES (:nome)";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
@@ -42,7 +43,8 @@ class Categoria
         $stmt->execute();
     }
 
-    public function atualizar(){
+    public function atualizar()
+    {
         $query = "UPDATE categorias set nome = :nome WHERE id = :id";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
@@ -56,9 +58,7 @@ class Categoria
         $query = "DELETE FROM categorias WHERE id = :id";
         $conexao = Conexao::pegarConexao();
         $stmt = $conexao->prepare($query);
-        $stmt->bindValue(':id', $this->id); // pra usarr bind value tenq preparar a queery
+        $stmt->bindValue(':id', $this->id);
         $stmt->execute();
     }
-
-  
 }

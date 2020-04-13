@@ -2,7 +2,7 @@
 <?php
     try {
         $listaCategoria = Categoria::listar();
-    } catch(Exception $e) {
+    } catch (Exception $e) {
         Erro::trataErro($e);
     }
 ?>
@@ -18,22 +18,22 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="form-group">
                     <label for="nome">Nome do Produto</label>
-                    <input type="text" class="form-control" name="nome" placeholder="Nome do Produto" required>
+                    <input type="text" name="nome" class="form-control" placeholder="Nome do Produto" required>
                 </div>
                 <div class="form-group">
                     <label for="preco">Preço da Produto</label>
-                    <input type="number" step="0.01" min="0" name="preco" class="form-control" placeholder="Preço do Produto" required>
+                    <input type="number" name="preco" step="0.01" min="0" class="form-control" placeholder="Preço do Produto" required>
                 </div>
                 <div class="form-group">
                     <label for="quantidade">Quantidade do Produto</label>
-                    <input type="number"  min="0" class="form-control" name="quantidade" placeholder="Quantidade do Produto" required>
+                    <input type="number" name="quantidade"  min="0" class="form-control" placeholder="Quantidade do Produto" required>
                 </div>
                 <div class="form-group">
                     <label for="nome">Categoria do Produto</label>
-                    <select name="categoria_id" class="form-control">
-                    <?php foreach ($listaCategoria as $linha): ?>
-                        <option value="<?php echo $linha['id'] ?>"><?php echo $linha['nome'] ?></option>
-                    <?php endforeach ?>
+                    <select class="form-control" name="categoria_id">
+                        <?php foreach ($listaCategoria as $linha): ?>
+                            <option value="<?php echo $linha['id'] ?>"><?php echo $linha['nome'] ?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
                 <input type="submit" class="btn btn-success btn-block" value="Salvar">
@@ -41,7 +41,6 @@
         </div>
     </form>
 <?php else: ?>
-    <p>Nenhuma categoria cadastrada no sistema. Por favor, crie uma categoria antes de cadastrar um produto.</p>
+    <p>Nenhuma categoria cadastrada no sistema. Por favor, crie uma categoria antes de cadastrar um produto</p>
 <?php endif ?>
-
 <?php require_once 'rodape.php' ?>

@@ -1,11 +1,10 @@
-<?php require_once 'global.php'; ?>
+<?php require_once 'global.php' ?>
 <?php
-    try{
+    try {
         $lista = Categoria::listar();
-    } catch(Exception $e){
-        Erro::trataErro($e);        
+    } catch(Exception $e) {
+        Erro::trataErro($e);
     }
-    
 ?>
 <?php require_once 'cabecalho.php' ?>
 <div class="row">

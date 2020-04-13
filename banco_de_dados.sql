@@ -33,3 +33,5 @@ INSERT INTO produtos (nome, preco, quantidade, categoria_id) VALUES
 ('Jogador Nº 1', 29.90, 5, 1),
 ('As Cronicas de Gelo e Fogo - 5 Livros', 199.99, 2, 1),
 ('O Poderoso Chefão', 89.90, 1, 3);
+
+

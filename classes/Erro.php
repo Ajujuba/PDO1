@@ -1,6 +1,7 @@
 <?php
 
-class Erro {
+class Erro
+{
     public static function trataErro(Exception $e)
     {
         if (DEBUG) {

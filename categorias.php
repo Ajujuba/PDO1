@@ -33,8 +33,8 @@
             <tbody>
                 <?php foreach ($lista as $linha): ?>
                     <tr>
-                        <td><a href="/categorias-detalhe.php" class="btn btn-link"><?php echo $linha['id'] ?></a></td>
-                        <td><a href="/categorias-detalhe.php" class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
+                        <td><a href="/categorias-detalhe.php?id=<?php echo $linha['id'] ?>" class="btn btn-link"><?php echo $linha['id'] ?></a></td>
+                        <td><a href="/categorias-detalhe.php?id=<?php echo $linha['id'] ?>" class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
                         <td><a href="/categorias-editar.php?id=<?php echo $linha['id'] ?>" class="btn btn-info">Editar</a></td>
                         <td><a href="/categorias-excluir-post.php?id=<?php echo $linha['id'] ?>" class="btn btn-danger">Excluir</a></td>
                     </tr>

@@ -42,6 +42,16 @@ class Produto
         return $lista;
     }
 
+    public static function listarPorCategoria($categoria_id)
+    {
+        $query = "SELECT id, nome, preco, quantidade FROM produtos WHERE categoria_id = :categoria_id";
+        $conexao = Conexao::pegarConexao();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':categoria_id', $categoria_id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function inserir()
     {
         $query = "INSERT INTO produtos (nome, preco, quantidade, categoria_id)
@@ -76,4 +86,6 @@ class Produto
         $stmt->bindValue('id', $this->id);
         $stmt->execute();
     }
+
+
 }

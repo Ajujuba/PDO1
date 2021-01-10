@@ -6,3 +6,5 @@ Para subir o sistema de estoque localmente, basta inciar o xampp startando o Apa
 Exemplo do pronpt:
 
 J:\curso\pdo> php -S 127.0.0.1:8888
+
+Após isso, abra seu navegador e digite: 127.0.0.1:8888 para acessar o site.
